@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+    <title>Estacionamiento</title>
+    <style>
+        #a{
+            width: 7rem;
+            left: 1rem;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body id="body" class="text-bglight text-white">
+    <nav class=" navbar navbar-expand-lg navbar-light  " style="background-color: #6610f2">
+        <div class="container-fluid" >
+            <a class="navbar-brand text-white link-primary" href="http://127.0.0.1:8000/admin/login/?next=/admin/"> <img  id="a" src="https://w7.pngwing.com/pngs/809/430/png-transparent-line-angle-luxury-car-logo-angle-line-luxury-car-logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white link-primary" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white link-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrar Calzos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item link-primary" href="{% url 'calzo_list' %}">Lista Calzos</a></li>
+                            <li><a class="dropdown-item link-primary" href="{% url 'calzo_register' %}">Registrar Calzos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white link-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrar Clientes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item link-primary" href="{% url 'cliente_list' %}">Lista Clientes</a></li>
+                            <li><a class="dropdown-item link-primary" href="{% url 'cliente_register' %}">Registrar Clientes</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white link-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrar Tipo de segmentos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item link-primary" href="{% url 'tipovehiculo_list' %}">Lista segmentos</a></li>
+                            <li><a class="dropdown-item link-primary" href="{% url 'tipovehiculo_register' %}">Registrar segmento</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-light text-black p-1">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

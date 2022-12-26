@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">Gestionar Calzos</h1>
+
+<table class="table text-bg-light">
+    {% if calzo_list %}
+    <thead>
+        <tr>
+            <th>Numero de calzo</th>
+            <th>Tipo de vehiculo</th>
+            <th>Estado del calzo</th>
+            <th>Nivel del calzo</th>
+            <th>Cliente designado</th>
+            <th>Hora de ingreso</th>
+
+            <th colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in calzo_list %}
+
+        <tr>
+            <td>{{ c.numero_estacionamiento }}</td>
+
+            <td>{% for v in c.tipo_vehiculo.all %}
+                {{ v.tipo_segmento }}
+                <br>
+                {% endfor %}
+            </td>
+            <td>{{ c.estado }}</td>
+            <td>{{ c.nivel_estacionamiento }}</td>
+            <td>{{ c.cliente }}</td>
+            <td>{{ c.cliente.hora_ingreso }}</td>
+
+                        
+            <td><a href="{% url 'calzo_edit' c.numero_estacionamiento %}" class="btn btn-info">Editar</a></td>
+            <td><a href="{% url 'calzo_deleted' c.numero_estacionamiento %}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+            
+        </tr>
+
+        {% endfor %}
+
+        {% else %}
+
+        <h3>No se encuentran Calzos registrados</h3>
+
+        {% endif %}  
+
+        
+
+    </tbody>
+</table>
+
+{% endblock %}

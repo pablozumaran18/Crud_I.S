@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">Gestionar Clientes</h1>
+
+<table class="table text-bg-light">
+    {% if cliente_list %}
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Patente del vehiculo</th>
+            <th>Hora de ingreso</th>
+            <th>Hora de salida</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in cliente_list %}
+
+        <tr>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.patente_vehiculo }}</td>
+            <td>{{ c.hora_ingreso }}</td>
+            <td>{{ c.hora_salida }}</td>
+                        
+            <td><a href="{% url 'cliente_edit' c.id %}" class="btn btn-info">Editar</a></td>
+            <td><a href="{% url 'cliente_deleted' c.id %}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+            
+        </tr>
+
+        {% endfor %}
+
+        {% else %}
+
+        <h3>No se encuentran clientes registrados</h3>
+
+        {% endif %}  
+
+        
+
+    </tbody>
+</table>
+
+{% endblock %}
